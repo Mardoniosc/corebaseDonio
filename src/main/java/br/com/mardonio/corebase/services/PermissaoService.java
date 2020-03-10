@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.mardonio.corebase.domain.Permissao;
 import br.com.mardonio.corebase.repositories.PermissaoRepository;
+import br.com.mardonio.corebase.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class PermissaoService {
@@ -16,7 +17,7 @@ public class PermissaoService {
 	
 	public Permissao find(Long id) {
 		Optional<Permissao> obj = repo.findById(id);
-		
-		return obj.orElse(null);
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Permissao.class.getName()));
 	}
 }

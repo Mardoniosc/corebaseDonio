@@ -1,15 +1,19 @@
 package br.com.mardonio.corebase.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Permissao implements Serializable {
@@ -19,16 +23,18 @@ public class Permissao implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
 	private String descricao;
 	
-	@NotNull
 	private String url;
 	
 	@Null
 	@ManyToOne
 	@JoinColumn(name = "permissao_pai_id")
 	private Permissao permissaoPai;
+	
+	@JsonIgnore
+	@ManyToMany(mappedBy = "permissoes")
+	private List<Perfil> perfil = new ArrayList<>();
 
 	public Permissao() {
 	}
@@ -72,5 +78,15 @@ public class Permissao implements Serializable {
 	public void setPermissaoPai(Permissao permissaoPai) {
 		this.permissaoPai = permissaoPai;
 	}
+
+	public List<Perfil> getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(List<Perfil> perfil) {
+		this.perfil = perfil;
+	}
+	
+	
 
 }
