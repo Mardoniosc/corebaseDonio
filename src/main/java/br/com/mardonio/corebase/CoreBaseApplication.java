@@ -60,7 +60,6 @@ public class CoreBaseApplication implements CommandLineRunner{
 		 
 		 usuarioRepository.saveAll(Arrays.asList(user1));
 		 
-		 
 	}
 
 }
