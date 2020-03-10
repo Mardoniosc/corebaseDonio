@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Perfil implements Serializable {
@@ -31,6 +34,10 @@ public class Perfil implements Serializable {
 	private List<Permissao> permissoes = new ArrayList<>();
 	
 	public Perfil() {}
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "perfil")
+	public List<Usuario> usuario = new ArrayList<>();
 
 	public Perfil(Long id, String nome) {
 		super();
