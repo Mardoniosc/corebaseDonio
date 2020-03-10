@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Mardoniosc/cursomc.svg?branch=master)](https://travis-ci.com/Mardoniosc/corebaseDonio)
+
 ### CoreBaseDOnio
 
 API Base para contrução de sistemas feito em Java com Spring boot.
