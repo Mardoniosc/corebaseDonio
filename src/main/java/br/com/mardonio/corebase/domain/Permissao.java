@@ -21,6 +21,7 @@ public class Permissao implements Serializable {
 	
 	@NotNull
 	private String descricao;
+	
 	@NotNull
 	private String url;
 	
