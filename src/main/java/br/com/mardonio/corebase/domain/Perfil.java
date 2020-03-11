@@ -24,7 +24,6 @@ public class Perfil implements Serializable {
 	
 	private String nome;
 	
-	@JsonIgnore
 	@OneToMany(mappedBy = "id.perfil")
 	private Set<PerfilPermissao> perfils = new HashSet<>();
 	

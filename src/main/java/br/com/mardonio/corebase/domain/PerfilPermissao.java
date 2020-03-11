@@ -1,5 +1,7 @@
 package br.com.mardonio.corebase.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
@@ -9,7 +11,8 @@ import br.com.mardonio.corebase.domain.enums.StatusPermissaoPerfil;
 import br.com.mardonio.corebase.domain.enums.StatusUsuario;
 
 @Entity
-public class PerfilPermissao {
+public class PerfilPermissao implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	@JsonIgnore
 	@EmbeddedId
@@ -26,11 +29,12 @@ public class PerfilPermissao {
 		this.status = (status == null) ? null : status.getCod();
 	}
 	
+	@JsonIgnore
 	public Perfil getPerfil() {
 		return id.getPerfil();
 	}
 	
-	@JsonIgnore
+	
 	public Permissao getPermissao() {
 		return id.getPermissao();
 	}
