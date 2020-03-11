@@ -20,4 +20,9 @@ public class PerfilService {
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Perfil.class.getName()));
 	}
+	
+	public Perfil insert(Perfil obj) {
+		obj.setId(null);
+		return repo.save(obj);
+	}
 }

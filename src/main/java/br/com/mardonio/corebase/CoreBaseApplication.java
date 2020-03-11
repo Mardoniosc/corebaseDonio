@@ -48,7 +48,7 @@ public class CoreBaseApplication implements CommandLineRunner{
 		 Perfil pf1 = new Perfil(null, "root");
 		 Perfil pf2 = new Perfil(null, "Administrador");
 		 Perfil pf3 = new Perfil(null, "Gertor");
-		 Perfil pf4 = new Perfil(null, "Operador");
+//		 Perfil pf4 = new Perfil(null, "Operador");
 		 
 		 // usuario root
 		 PerfilPermissao pp1 = new PerfilPermissao(pf1, pm1, StatusPermissaoPerfil.ATIVADO);
@@ -65,24 +65,13 @@ public class CoreBaseApplication implements CommandLineRunner{
 		 PerfilPermissao pp8 = new PerfilPermissao(pf3, pm3, StatusPermissaoPerfil.ATIVADO);
 
 		 // Usuario Operador
-		 PerfilPermissao pp9 = new PerfilPermissao(pf4, pm1, StatusPermissaoPerfil.INATIVO);
-
-		 /*
-		 pf1.getPermissoes().addAll(Arrays.asList(pm1,pm2,pm3));
-		 pf2.getPermissoes().addAll(Arrays.asList(pm1,pm2,pm3));
-		 pf3.getPermissoes().addAll(Arrays.asList(pm1,pm2));
-		 pf4.getPermissoes().addAll(Arrays.asList(pm1));
-		 
-		 pm1.getPerfil().addAll(Arrays.asList(pf1,pf2,pf3,pf4));
-		 pm2.getPerfil().addAll(Arrays.asList(pf1,pf2,pf3));
-		 pm3.getPerfil().addAll(Arrays.asList(pf1,pf2));
-		  */
+//		 PerfilPermissao pp9 = new PerfilPermissao(pf4, pm1, StatusPermissaoPerfil.INATIVO);
 		 
 		 permissaoRepository.saveAll(Arrays.asList(pm1,pm2,pm3));
 		 
-		 perfilRepository.saveAll(Arrays.asList(pf1, pf2, pf3, pf4));
+		 perfilRepository.saveAll(Arrays.asList(pf1, pf2, pf3));
 		 
-		 perfilPermissaoRepository.saveAll(Arrays.asList(pp1, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9));
+		 perfilPermissaoRepository.saveAll(Arrays.asList(pp1, pp2, pp3, pp4, pp5, pp6, pp7, pp8));
 		 Usuario user1 = new Usuario(null,"root", "root@tecnisys.com.br", "123123", "41193360005", "root", null, null, StatusUsuario.ATIVADO, pf1);
 		 
 		 usuarioRepository.saveAll(Arrays.asList(user1));

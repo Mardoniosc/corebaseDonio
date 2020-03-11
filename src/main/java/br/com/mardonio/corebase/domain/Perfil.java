@@ -25,7 +25,7 @@ public class Perfil implements Serializable {
 	private String nome;
 	
 	@OneToMany(mappedBy = "id.perfil")
-	private Set<PerfilPermissao> perfils = new HashSet<>();
+	private Set<PerfilPermissao> permissoes = new HashSet<>();
 	
 	
 	public Perfil() {}
@@ -56,12 +56,14 @@ public class Perfil implements Serializable {
 		this.nome = nome;
 	}
 
-	public Set<PerfilPermissao> getPerfils() {
-		return perfils;
+	
+
+	public Set<PerfilPermissao> getPermissoes() {
+		return permissoes;
 	}
 
-	public void setPerfils(Set<PerfilPermissao> perfils) {
-		this.perfils = perfils;
+	public void setPermissoes(Set<PerfilPermissao> permissoes) {
+		this.permissoes = permissoes;
 	}
 
 	@Override
