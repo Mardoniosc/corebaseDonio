@@ -25,4 +25,9 @@ public class PerfilService {
 		obj.setId(null);
 		return repo.save(obj);
 	}
+	
+	public Perfil update(Perfil obj) {
+		find(obj.getId());
+		return repo.save(obj);
+	}
 }
