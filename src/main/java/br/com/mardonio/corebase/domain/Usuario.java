@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Null;
 
+import br.com.mardonio.corebase.domain.enums.StatusUsuario;
+
 @Entity
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -42,7 +44,7 @@ public class Usuario implements Serializable {
 	public Usuario() {}
 
 	public Usuario(Long id, String nome, String email, String senha, String CPF, String login, String imagem,
-			Timestamp criado, int status, Perfil perfil) {
+			Timestamp criado, StatusUsuario status, Perfil perfil) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -52,7 +54,7 @@ public class Usuario implements Serializable {
 		this.login = login;
 		this.imagem = imagem;
 		this.criado = criado;
-		this.status = status;
+		this.status = (status == null) ? null : status.getCod();
 		this.perfil = perfil;
 	}
 
@@ -120,12 +122,12 @@ public class Usuario implements Serializable {
 		this.criado = criado;
 	}
 
-	public int getStatus() {
-		return status;
+	public StatusUsuario getStatus() {
+		return StatusUsuario.toEnum(status);
 	}
 
-	public void setStatus(int status) {
-		this.status = status;
+	public void setStatus(StatusUsuario status) {
+		this.status = status.getCod();
 	}
 
 	public Perfil getPerfil() {

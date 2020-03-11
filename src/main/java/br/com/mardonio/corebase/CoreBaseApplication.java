@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import br.com.mardonio.corebase.domain.Perfil;
 import br.com.mardonio.corebase.domain.Permissao;
 import br.com.mardonio.corebase.domain.Usuario;
+import br.com.mardonio.corebase.domain.enums.StatusUsuario;
 import br.com.mardonio.corebase.repositories.PerfilRepository;
 import br.com.mardonio.corebase.repositories.PermissaoRepository;
 import br.com.mardonio.corebase.repositories.UsuarioRepository;
@@ -56,7 +57,7 @@ public class CoreBaseApplication implements CommandLineRunner{
 		 
 		 perfilRepository.saveAll(Arrays.asList(pf1, pf2, pf3, pf4));
 		 
-		 Usuario user1 = new Usuario(null,"root", "root@tecnisys.com.br", "123123", "41193360005", "root", null, null, 1, pf1);
+		 Usuario user1 = new Usuario(null,"root", "root@tecnisys.com.br", "123123", "41193360005", "root", null, null, StatusUsuario.ATIVADO, pf1);
 		 
 		 usuarioRepository.saveAll(Arrays.asList(user1));
 		 
