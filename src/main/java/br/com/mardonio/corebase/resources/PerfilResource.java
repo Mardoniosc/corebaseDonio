@@ -1,6 +1,8 @@
 package br.com.mardonio.corebase.resources;
 
 import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.mardonio.corebase.domain.Perfil;
+import br.com.mardonio.corebase.dto.PerfilDTO;
 import br.com.mardonio.corebase.services.PerfilService;
 
 @RestController
@@ -27,7 +30,7 @@ public class PerfilResource {
 	@GetMapping("/{id}")
 	public ResponseEntity<Perfil> find(@PathVariable Long id) {
 		Perfil obj = service.find(id);
-		return ResponseEntity.ok(obj);
+		return ResponseEntity.ok().body(obj) ;
 	}
 	
 	@PostMapping
@@ -51,5 +54,12 @@ public class PerfilResource {
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<PerfilDTO>> findAll() {
+		List<Perfil> list = service.findAll();
+		List<PerfilDTO> listDTO = list.stream().map(obj -> new PerfilDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
 	}
 }

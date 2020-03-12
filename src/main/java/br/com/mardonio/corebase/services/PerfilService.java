@@ -1,5 +1,6 @@
 package br.com.mardonio.corebase.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,10 @@ public class PerfilService {
 		Optional<Perfil> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Perfil.class.getName()));
+	}
+	
+	public List<Perfil> findAll(){
+		return repo.findAll();
 	}
 	
 	public Perfil insert(Perfil obj) {
