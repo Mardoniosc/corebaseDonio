@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.com.mardonio.corebase.domain.Perfil;
+import br.com.mardonio.corebase.dto.PerfilDTO;
 import br.com.mardonio.corebase.repositories.PerfilRepository;
 import br.com.mardonio.corebase.services.exceptions.DataIntegrityException;
 import br.com.mardonio.corebase.services.exceptions.ObjectNotFoundException;
@@ -25,6 +26,10 @@ public class PerfilService {
 		Optional<Perfil> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Perfil.class.getName()));
+	}
+	
+	public Perfil fromDTO(PerfilDTO objDTO) {
+		return new Perfil(objDTO.getId(), objDTO.getNome());
 	}
 	
 	public List<Perfil> findAll(){
