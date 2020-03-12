@@ -48,6 +48,15 @@ public class CoreBaseApplication implements CommandLineRunner{
 		 Perfil pf1 = new Perfil(null, "root");
 		 Perfil pf2 = new Perfil(null, "Administrador");
 		 Perfil pf3 = new Perfil(null, "Gertor");
+		 Perfil pf4 = new Perfil(null, "root");
+		 Perfil pf5 = new Perfil(null, "Administrador");
+		 Perfil pf6 = new Perfil(null, "Gertor");
+		 Perfil pf7 = new Perfil(null, "root");
+		 Perfil pf8 = new Perfil(null, "Administrador");
+		 Perfil pf9 = new Perfil(null, "Gertor");
+		 Perfil pf10 = new Perfil(null, "root");
+		 Perfil pf11 = new Perfil(null, "Administrador");
+		 Perfil pf12 = new Perfil(null, "Gertor");
 //		 Perfil pf4 = new Perfil(null, "Operador");
 		 
 		 // usuario root
@@ -69,7 +78,7 @@ public class CoreBaseApplication implements CommandLineRunner{
 		 
 		 permissaoRepository.saveAll(Arrays.asList(pm1,pm2,pm3));
 		 
-		 perfilRepository.saveAll(Arrays.asList(pf1, pf2, pf3));
+		 perfilRepository.saveAll(Arrays.asList(pf1, pf2, pf3, pf4, pf5, pf6, pf7, pf8, pf9, pf10, pf11, pf12));
 		 
 		 perfilPermissaoRepository.saveAll(Arrays.asList(pp1, pp2, pp3, pp4, pp5, pp6, pp7, pp8));
 		 Usuario user1 = new Usuario(null,"root", "root@tecnisys.com.br", "123123", "41193360005", "root", null, null, StatusUsuario.ATIVADO, pf1);
