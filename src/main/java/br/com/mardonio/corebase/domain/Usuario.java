@@ -26,9 +26,9 @@ public class Usuario implements Serializable {
 
 	private String CPF;
 	private String login;
-	@Null
+
 	private String imagem;
-	@Null
+	
 	private Timestamp criado;
 
 	private int status;

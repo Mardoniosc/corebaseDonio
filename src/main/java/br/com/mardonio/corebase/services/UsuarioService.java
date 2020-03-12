@@ -30,7 +30,7 @@ public class UsuarioService {
 	}
 	
 	public Usuario fromDTO(UsuarioDTO objDTO) {
-		return new Usuario(objDTO.getId(), objDTO.getNome(), objDTO.getEmail(), objDTO.getSenha(), null, objDTO.getLogin(), null, null, StatusUsuario.ATIVADO, null);
+		return new Usuario(objDTO.getId(), objDTO.getNome(), objDTO.getEmail(), objDTO.getSenha(), null, objDTO.getLogin(), objDTO.getImagem(), null, StatusUsuario.ATIVADO, null);
 	}
 	
 	public List<Usuario> findAll(){
@@ -44,8 +44,11 @@ public class UsuarioService {
 	}
 	
 	private void updateData(Usuario newObj, Usuario obj) {
-		newObj.setCPF(obj.getCPF());
-		newObj.setPerfil(obj.getPerfil());
+		newObj.setNome(obj.getNome());
+		newObj.setEmail(obj.getEmail());
+		newObj.setSenha(obj.getSenha());
+		newObj.setLogin(obj.getLogin());
+		newObj.setImagem(obj.getImagem());
 	}
 	
 	public void delete(Long id) {
