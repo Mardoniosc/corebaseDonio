@@ -47,16 +47,16 @@ public class CoreBaseApplication implements CommandLineRunner{
 		 
 		 Perfil pf1 = new Perfil(null, "root");
 		 Perfil pf2 = new Perfil(null, "Administrador");
-		 Perfil pf3 = new Perfil(null, "Gertor");
-		 Perfil pf4 = new Perfil(null, "root");
+		 Perfil pf3 = new Perfil(null, "Gestor");
+		 Perfil pf4 = new Perfil(null, "operador");
 		 Perfil pf5 = new Perfil(null, "Administrador");
-		 Perfil pf6 = new Perfil(null, "Gertor");
+		 Perfil pf6 = new Perfil(null, "Gestor");
 		 Perfil pf7 = new Perfil(null, "root");
 		 Perfil pf8 = new Perfil(null, "Administrador");
-		 Perfil pf9 = new Perfil(null, "Gertor");
+		 Perfil pf9 = new Perfil(null, "Gestor");
 		 Perfil pf10 = new Perfil(null, "root");
 		 Perfil pf11 = new Perfil(null, "Administrador");
-		 Perfil pf12 = new Perfil(null, "Gertor");
+		 Perfil pf12 = new Perfil(null, "Gestor");
 //		 Perfil pf4 = new Perfil(null, "Operador");
 		 
 		 // usuario root

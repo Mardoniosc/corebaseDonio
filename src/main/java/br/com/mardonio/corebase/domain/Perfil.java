@@ -56,7 +56,6 @@ public class Perfil implements Serializable {
 		this.nome = nome;
 	}
 
-	
 
 	public Set<PerfilPermissao> getPermissoes() {
 		return permissoes;
